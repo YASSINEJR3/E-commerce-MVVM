@@ -1,0 +1,48 @@
+﻿@page
+@model SqlLiteAmazonWebApp.Pages.Products.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row justify-content-md-center mt-5">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Product.Id" />
+            <div class="form-group mt-2">
+                <label asp-for="Product.Name" class="control-label"></label>
+                <input asp-for="Product.Name" class="form-control" />
+                <span asp-validation-for="Product.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <label asp-for="Product.Description" class="control-label"></label>
+                <input asp-for="Product.Description" class="form-control" />
+                <span asp-validation-for="Product.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <label asp-for="Product.Price" class="control-label"></label>
+                <input asp-for="Product.Price" class="form-control" />
+                <span asp-validation-for="Product.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <label asp-for="Product.Image" class="control-label"></label>
+                <input asp-for="Product.Image" class="form-control" />
+                <span asp-validation-for="Product.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <label asp-for="Product.CategoryId" class="control-label"></label>
+                <select asp-for="Product.CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+            </div>
+            <div class="form-group text-center mt-3">
+                <input type="submit" value="Create" class="btn btn-info mt-3 w-100 bg-primary text-white" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
